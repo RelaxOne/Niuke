@@ -1,0 +1,10 @@
+Debug/test.o
+Debug/print.o
+Debug/main.o
+Debug/Solution.o
+Debug/Niuke.exe
+Debug/Init.o
+.settings/org.eclipse.cdt.managedbuilder.core.prefs
+.settings/language.settings.xml
+.project
+.cproject
