@@ -72,10 +72,12 @@ vector<vector<int>> initArray() {
 
 vector<int> InitVectorArray(){
 	vector<int> arr;
+	arr.push_back(1);
+	arr.push_back(2);
 	arr.push_back(3);
 	arr.push_back(4);
 	arr.push_back(5);
-	arr.push_back(1);
-	arr.push_back(2);
+	arr.push_back(6);
+	arr.push_back(7);
 	return arr;
 }

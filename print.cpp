@@ -46,3 +46,17 @@ void printString(const char *str){
 	}
 	cout<<endl;
 }
+
+/**
+ * print list
+ */
+void printListNode(ListNode* pListHead){
+	ListNode *p = pListHead;
+	while(p != NULL){
+		cout<< p->val;
+		p = p->next;
+		if(p != NULL)
+			cout<< " -> ";
+	}
+	cout<<endl;
+}

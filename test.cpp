@@ -33,3 +33,27 @@ void testminNumberInRotateArray(){
 void testFibonacci(){
 	cout<<Fibonacci(8)<<endl;
 }
+
+void testPower(){
+	double a = 2;
+	int b = -3;
+	cout<< Power(a,b)<<endl;
+}
+
+void testreOrderArray(){
+	vector<int> arr = InitVectorArray();
+	reOrderArray(arr);
+	printVector(arr);
+}
+
+void testFindKthToTail(){
+	ListNode *pListHead = InitList();
+	ListNode *result = FindKthToTail(pListHead, 3);
+	printListNode(result);
+}
+
+void testReverseList(){
+	ListNode *list = InitList();
+	ListNode *result = ReverseList(list);
+	printListNode(result);
+}

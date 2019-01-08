@@ -8,5 +8,5 @@
 #include "test.h"
 
 int main(){
-	testFibonacci();
+	testReverseList();
 }

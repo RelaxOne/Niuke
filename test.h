@@ -16,5 +16,9 @@ void testPrintListFromTailToHead();
 void testreplaceSpace();
 void testminNumberInRotateArray();
 void testFibonacci();
+void testPower();
+void testreOrderArray();
+void testFindKthToTail();
+void testReverseList();
 
 #endif /* TEST_H_ */

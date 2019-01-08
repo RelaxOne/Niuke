@@ -12,6 +12,7 @@
 #include <vector>
 #include <stack>
 #include <string.h>
+#include <math.h>
 
 using namespace std;
 
@@ -35,5 +36,21 @@ int minNumberInRotateArray(vector<int> rotateArray) ;
 
 // 输入一个整数n，请你输出斐波那契数列的第n项
 int Fibonacci(int n);
+
+// 求base的exponent次方
+double Power(double base, int exponent);
+
+// 使得所有的奇数位于数组的前半部分，所有的偶数位于数组的后半部分,并保证其相对位置不发生改变
+void reOrderArray(vector<int> &array);
+
+// 链表中倒数第k个结点。
+ListNode* FindKthToTail(ListNode* pListHead, int k);
+
+// 反转链表后，输出新链表的表头。
+ListNode* ReverseList(ListNode* pHead);
+
+// 合并两个单调递增的链表，并保持其递增性
+ListNode* Merge(ListNode* pHead1, ListNode* pHead2);
+
 
 #endif /* SOLUTION_H_ */
