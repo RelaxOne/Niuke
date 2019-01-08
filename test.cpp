@@ -57,3 +57,16 @@ void testReverseList(){
 	ListNode *result = ReverseList(list);
 	printListNode(result);
 }
+
+void testMerge(){
+	ListNode *p1 = InitList();
+	ListNode *p2 = InitList();
+
+	ListNode *result = Merge(p1,p2);
+	printListNode(result);
+}
+
+
+void testNumberOf1(){
+	cout<< NumberOf1(5)<<endl;
+}

@@ -7,6 +7,7 @@
 
 #include "test.h"
 
-int main(){
-	testReverseList();
+
+int main() {
+	testNumberOf1();
 }

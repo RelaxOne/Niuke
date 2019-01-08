@@ -20,5 +20,7 @@ void testPower();
 void testreOrderArray();
 void testFindKthToTail();
 void testReverseList();
+void testMerge();
+void testNumberOf1();
 
 #endif /* TEST_H_ */
