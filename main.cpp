@@ -9,5 +9,5 @@
 
 
 int main() {
-
+	testSum_Solution();
 }

@@ -99,3 +99,7 @@ void testMirror(){
 	Mirror(root);
 	printTreeNode(root);
 }
+
+void testSum_Solution(){
+	cout<< Sum_Solution(5)<<endl;
+}

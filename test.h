@@ -24,7 +24,6 @@ void testMerge();
 void testNumberOf1();
 void testreConstructBinaryTree();
 void testMirror();
-void teststack();
-
+void testSum_Solution();
 
 #endif /* TEST_H_ */

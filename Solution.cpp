@@ -270,3 +270,12 @@ void Mirror(TreeNode *pRoot){
 	Mirror(pRoot->left);
 	Mirror(pRoot->right);
 }
+
+/**
+ * 37. 求1+2+3+...+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）
+ */
+int Sum_Solution(int n) {
+	bool a[n][n+1];	// 声明一个 n*n-1  的  bool 类型的数组
+	return sizeof(a)>>1;
+}
+
