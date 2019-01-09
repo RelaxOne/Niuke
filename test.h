@@ -22,5 +22,9 @@ void testFindKthToTail();
 void testReverseList();
 void testMerge();
 void testNumberOf1();
+void testreConstructBinaryTree();
+void testMirror();
+void teststack();
+
 
 #endif /* TEST_H_ */

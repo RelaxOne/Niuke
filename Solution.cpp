@@ -66,6 +66,40 @@ vector<int> printListFromTailToHead(ListNode *head) {
 }
 
 /**
+ * 4. 根据二叉树的前序遍历和中序遍历重建出该二叉树
+ */
+TreeNode* reConstructBinaryTree(vector<int> pre, vector<int> vin) {
+	vector<int> left_pre, right_pre, left_vin, right_vin;
+	if(pre.empty())
+		return NULL;
+	int root_val = pre[0];
+	int len = vin.size();
+	int index = 0;
+	for(int i = 0; i < len; i++){
+		if(vin[i] == root_val){
+			index = i;
+			break;
+		}
+		left_vin.push_back(vin[i]);
+	}
+	for(int i = 1; i < index + 1; i++){
+		left_pre.push_back(pre[i]);
+	}
+
+	for(int i = index + 1; i < len; i++){
+		right_vin.push_back(vin[i]);
+		right_pre.push_back(pre[i]);
+	}
+	TreeNode *root = new TreeNode(root_val);
+	root->val = root_val;
+
+	root->left = reConstructBinaryTree(left_pre,left_vin);
+	root->right = reConstructBinaryTree(right_pre,right_vin);
+
+	return root;
+}
+
+/**
  * 6. 输入一个非减排序的数组的一个旋转, 输出旋转数组的最小元素
  */
 int minNumberInRotateArray(vector<int> rotateArray) {
@@ -100,7 +134,7 @@ int Fibonacci(int n) {
 /**
  * 11. 输入一个整数,输出该数二进制表示中1的个数, 其中负数用补码表示。
  */
-int NumberOf1(int n){
+int NumberOf1(int n) {
 	int count = 0;
 //	unsigned int flag = 1;
 //	while(flag){
@@ -109,9 +143,9 @@ int NumberOf1(int n){
 //		flag = flag << 1;
 //	}
 
-	while(n != 0){
+	while (n != 0) {
 		count++;
-		n = n & (n-1);
+		n = n & (n - 1);
 	}
 	return count;
 }
@@ -218,21 +252,21 @@ ListNode* Merge(ListNode* pHead1, ListNode* pHead2) {
 		p->next = temp;
 		p = p->next;
 	}
-	if(p1 != NULL)
+	if (p1 != NULL)
 		p->next = p1;
-	else if(p2 != NULL)
+	else if (p2 != NULL)
 		p->next = p2;
 	return result->next;
 }
-
-vector<int> printMaxtrix(vector<vector<int> > matrix){
-//	if(matrix.empty())
-//		return {};
-//	vector<int> result;
-//	int cols = matrix.size();
-//	int rows = matrix[0].size();
-//	int a = 0, b = 0, c = 0, d = 0;
-
-	return {};
-
+/**
+ * 18. 将给定的二叉树变换为源二叉树的镜像
+ */
+void Mirror(TreeNode *pRoot){
+	if(pRoot == NULL)
+		return;
+	TreeNode *temp = pRoot->left;
+	pRoot->left = pRoot->right;
+	pRoot->right = temp;
+	Mirror(pRoot->left);
+	Mirror(pRoot->right);
 }

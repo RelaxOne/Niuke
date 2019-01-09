@@ -60,3 +60,20 @@ void printListNode(ListNode* pListHead){
 	}
 	cout<<endl;
 }
+
+void printTreeNode(TreeNode *root){
+	if(root == NULL)
+		return;
+	cout << root->val << " ";
+	printTreeNode(root->left);
+	printTreeNode(root->right);
+}
+
+void printStack(stack<int> stack){
+	int len = stack.size();
+	for(int i = 0; i < len; i++){
+		cout<< stack.top() <<" ";
+		stack.pop();
+	}
+	cout<<endl;
+}

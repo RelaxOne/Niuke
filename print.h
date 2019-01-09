@@ -15,5 +15,7 @@ void printVector(vector<int> vec);
 void printArray(vector<vector<int>> arr);
 void printString(const char *str);
 void printListNode(ListNode* pListHead);
+void printTreeNode(TreeNode *root);
+void printStack(stack<int> stack);
 
 #endif /* PRINT_H_ */

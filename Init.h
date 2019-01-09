@@ -14,5 +14,6 @@ ListNode * InitList();
 vector<vector<int>> initArray();
 
 vector<int> InitVectorArray();
+TreeNode* InitTreeNode();
 
 #endif /* INIT_H_ */

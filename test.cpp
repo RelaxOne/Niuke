@@ -70,3 +70,32 @@ void testMerge(){
 void testNumberOf1(){
 	cout<< NumberOf1(5)<<endl;
 }
+
+void testreConstructBinaryTree(){
+	vector<int> pre, vin;
+	pre.push_back(1);
+	pre.push_back(2);
+	pre.push_back(4);
+	pre.push_back(7);
+	pre.push_back(3);
+	pre.push_back(5);
+	pre.push_back(6);
+	pre.push_back(8);
+
+	vin.push_back(4);
+	vin.push_back(7);
+	vin.push_back(2);
+	vin.push_back(1);
+	vin.push_back(5);
+	vin.push_back(3);
+	vin.push_back(8);
+	vin.push_back(6);
+	TreeNode* root = reConstructBinaryTree(pre, vin);
+	printTreeNode(root);
+}
+
+void testMirror(){
+	TreeNode *root = InitTreeNode();
+	Mirror(root);
+	printTreeNode(root);
+}
