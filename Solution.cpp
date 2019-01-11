@@ -272,6 +272,38 @@ void Mirror(TreeNode *pRoot){
 }
 
 /**
+ * 28. 数组中出现次数超过一半的数字
+ */
+int MoreThanHalfNum_Solution(vector<int> numbers){
+	int len = numbers.size();
+	vector<int> arr,arr_index;
+	for(int i = 0; i < len; i++){
+		int number = numbers[i];
+		bool flag = false;
+		int index = -1;
+		int l = arr.size();
+		for(int j = 0; j < l;j++){
+			if(arr[j] == number){
+				flag = true;
+				index = j;
+				break;
+			}
+		}
+		if(!flag){
+			arr.push_back(number);
+			arr_index.push_back(1);
+		}else{
+			arr_index[index] += 1;
+		}
+	}
+	int arr_size = arr_index.size();
+	for(int i = 0; i < arr_size; i++){
+		if(arr_index[i] > len / 2)
+			return arr[i];
+	}
+	return 0;
+}
+/**
  * 37. 求1+2+3+...+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）
  */
 int Sum_Solution(int n) {

@@ -25,5 +25,6 @@ void testNumberOf1();
 void testreConstructBinaryTree();
 void testMirror();
 void testSum_Solution();
+void testMoreThanHalfNum_Solution();
 
 #endif /* TEST_H_ */
