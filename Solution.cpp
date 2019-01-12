@@ -1,7 +1,7 @@
 #include "Solution.h"
 
 /**
- * 1. ÔÚÒ»¸ö¶şÎ¬Êı×éÖĞ(Ã¿¸öÒ»Î¬Êı×éµÄ³¤¶ÈÏàÍ¬ ),Ã¿Ò»ĞĞ¶¼°´ÕÕ´Ó×óµ½ÓÒµİÔöµÄË³ĞòÅÅĞò, Ã¿Ò»ÁĞ¶¼°´ÕÕ´ÓÉÏµ½ÏÂµİÔöµÄË³ĞòÅÅĞò
+ * 1. åœ¨ä¸€ä¸ªäºŒç»´æ•°ç»„ä¸­(æ¯ä¸ªä¸€ç»´æ•°ç»„çš„é•¿åº¦ç›¸åŒ ),æ¯ä¸€è¡Œéƒ½æŒ‰ç…§ä»å·¦åˆ°å³é€’å¢çš„é¡ºåºæ’åº, æ¯ä¸€åˆ—éƒ½æŒ‰ç…§ä»ä¸Šåˆ°ä¸‹é€’å¢çš„é¡ºåºæ’åº
  */
 bool Find(int target, vector<vector<int> > array) {
 	if (array.empty()) {
@@ -22,7 +22,7 @@ bool Find(int target, vector<vector<int> > array) {
 }
 
 /**
- * 2. ÊµÏÖÒ»¸öº¯Êı, ½«Ò»¸ö×Ö·û´®ÖĞµÄÃ¿¸ö¿Õ¸ñÌæ»»³É¡°%20¡±
+ * 2. å®ç°ä¸€ä¸ªå‡½æ•°, å°†ä¸€ä¸ªå­—ç¬¦ä¸²ä¸­çš„æ¯ä¸ªç©ºæ ¼æ›¿æ¢æˆâ€œ%20â€
  */
 void replaceSpace(char *str, int length) {
 	int count = 0;
@@ -44,7 +44,7 @@ void replaceSpace(char *str, int length) {
 }
 
 /**
- * 3.  ÊäÈëÒ»¸öÁ´±í, °´Á´±íÖµ´ÓÎ²µ½Í·µÄË³Ğò·µ»ØÒ»¸öArrayList¡£
+ * 3.  è¾“å…¥ä¸€ä¸ªé“¾è¡¨, æŒ‰é“¾è¡¨å€¼ä»å°¾åˆ°å¤´çš„é¡ºåºè¿”å›ä¸€ä¸ªArrayListã€‚
  */
 vector<int> printListFromTailToHead(ListNode *head) {
 	vector<int> result;
@@ -66,7 +66,7 @@ vector<int> printListFromTailToHead(ListNode *head) {
 }
 
 /**
- * 4. ¸ù¾İ¶ş²æÊ÷µÄÇ°Ğò±éÀúºÍÖĞĞò±éÀúÖØ½¨³ö¸Ã¶ş²æÊ÷
+ * 4. æ ¹æ®äºŒå‰æ ‘çš„å‰åºéå†å’Œä¸­åºéå†é‡å»ºå‡ºè¯¥äºŒå‰æ ‘
  */
 TreeNode* reConstructBinaryTree(vector<int> pre, vector<int> vin) {
 	vector<int> left_pre, right_pre, left_vin, right_vin;
@@ -100,7 +100,7 @@ TreeNode* reConstructBinaryTree(vector<int> pre, vector<int> vin) {
 }
 
 /**
- * 6. ÊäÈëÒ»¸ö·Ç¼õÅÅĞòµÄÊı×éµÄÒ»¸öĞı×ª, Êä³öĞı×ªÊı×éµÄ×îĞ¡ÔªËØ
+ * 6. è¾“å…¥ä¸€ä¸ªéå‡æ’åºçš„æ•°ç»„çš„ä¸€ä¸ªæ—‹è½¬, è¾“å‡ºæ—‹è½¬æ•°ç»„çš„æœ€å°å…ƒç´ 
  */
 int minNumberInRotateArray(vector<int> rotateArray) {
 	int len = rotateArray.size();
@@ -116,7 +116,7 @@ int minNumberInRotateArray(vector<int> rotateArray) {
 }
 
 /**
- * 7. Êä³öì³²¨ÄÇÆõÊıÁĞµÄµÚnÏî
+ * 7. è¾“å‡ºæ–æ³¢é‚£å¥‘æ•°åˆ—çš„ç¬¬né¡¹
  */
 int Fibonacci(int n) {
 	if (n == 0 || n == 1)
@@ -132,7 +132,7 @@ int Fibonacci(int n) {
 }
 
 /**
- * 11. ÊäÈëÒ»¸öÕûÊı,Êä³ö¸ÃÊı¶ş½øÖÆ±íÊ¾ÖĞ1µÄ¸öÊı, ÆäÖĞ¸ºÊıÓÃ²¹Âë±íÊ¾¡£
+ * 11. è¾“å…¥ä¸€ä¸ªæ•´æ•°,è¾“å‡ºè¯¥æ•°äºŒè¿›åˆ¶è¡¨ç¤ºä¸­1çš„ä¸ªæ•°, å…¶ä¸­è´Ÿæ•°ç”¨è¡¥ç è¡¨ç¤ºã€‚
  */
 int NumberOf1(int n) {
 	int count = 0;
@@ -151,7 +151,7 @@ int NumberOf1(int n) {
 }
 
 /**
- * 12. ¸ø¶¨Ò»¸ödoubleÀàĞÍµÄ¸¡µãÊıbaseºÍintÀàĞÍµÄÕûÊıexponent¡£ÇóbaseµÄexponent´Î·½¡£
+ * 12. ç»™å®šä¸€ä¸ªdoubleç±»å‹çš„æµ®ç‚¹æ•°baseå’Œintç±»å‹çš„æ•´æ•°exponentã€‚æ±‚baseçš„exponentæ¬¡æ–¹ã€‚
  */
 double Power(double base, int exponent) {
 	double result = 1.0;
@@ -171,7 +171,7 @@ double Power(double base, int exponent) {
 }
 
 /**
- * 13. Ê¹µÃËùÓĞµÄÆæÊıÎ»ÓÚÊı×éµÄÇ°°ë²¿·Ö, ËùÓĞµÄÅ¼ÊıÎ»ÓÚÊı×éµÄºó°ë²¿·Ö,²¢±£Ö¤ÆäÏà¶ÔÎ»ÖÃ²»·¢Éú¸Ä±ä
+ * 13. ä½¿å¾—æ‰€æœ‰çš„å¥‡æ•°ä½äºæ•°ç»„çš„å‰åŠéƒ¨åˆ†, æ‰€æœ‰çš„å¶æ•°ä½äºæ•°ç»„çš„ååŠéƒ¨åˆ†,å¹¶ä¿è¯å…¶ç›¸å¯¹ä½ç½®ä¸å‘ç”Ÿæ”¹å˜
  */
 void reOrderArray(vector<int> &array) {
 	int i = 0, pos = 0, len = array.size();
@@ -189,7 +189,7 @@ void reOrderArray(vector<int> &array) {
 }
 
 /**
- * 14. Êä³ö¸ÃÁ´±íÖĞµ¹ÊıµÚk¸ö½áµã¡£
+ * 14. è¾“å‡ºè¯¥é“¾è¡¨ä¸­å€’æ•°ç¬¬kä¸ªç»“ç‚¹ã€‚
  */
 ListNode* FindKthToTail(ListNode* pListHead, int k) {
 	if (pListHead == NULL || k == 0)
@@ -209,7 +209,7 @@ ListNode* FindKthToTail(ListNode* pListHead, int k) {
 }
 
 /**
- * 15. ·´×ªÁ´±íºó, Êä³öĞÂÁ´±íµÄ±íÍ·¡£
+ * 15. åè½¬é“¾è¡¨å, è¾“å‡ºæ–°é“¾è¡¨çš„è¡¨å¤´ã€‚
  */
 ListNode* ReverseList(ListNode* pHead) {
 	if (pHead == NULL)
@@ -228,7 +228,7 @@ ListNode* ReverseList(ListNode* pHead) {
 }
 
 /**
- * 16. ºÏ²¢Á½¸öµ¥µ÷µİÔöµÄÁ´±í,²¢±£³ÖÆäµİÔöĞÔ
+ * 16. åˆå¹¶ä¸¤ä¸ªå•è°ƒé€’å¢çš„é“¾è¡¨,å¹¶ä¿æŒå…¶é€’å¢æ€§
  */
 ListNode* Merge(ListNode* pHead1, ListNode* pHead2) {
 	ListNode *result = (ListNode*) malloc(sizeof(ListNode));
@@ -259,7 +259,7 @@ ListNode* Merge(ListNode* pHead1, ListNode* pHead2) {
 	return result->next;
 }
 /**
- * 18. ½«¸ø¶¨µÄ¶ş²æÊ÷±ä»»ÎªÔ´¶ş²æÊ÷µÄ¾µÏñ
+ * 18. å°†ç»™å®šçš„äºŒå‰æ ‘å˜æ¢ä¸ºæºäºŒå‰æ ‘çš„é•œåƒ
  */
 void Mirror(TreeNode *pRoot){
 	if(pRoot == NULL)
@@ -272,7 +272,7 @@ void Mirror(TreeNode *pRoot){
 }
 
 /**
- * 28. Êı×éÖĞ³öÏÖ´ÎÊı³¬¹ıÒ»°ëµÄÊı×Ö
+ * 28. æ•°ç»„ä¸­å‡ºç°æ¬¡æ•°è¶…è¿‡ä¸€åŠçš„æ•°å­—
  */
 int MoreThanHalfNum_Solution(vector<int> numbers){
 	int len = numbers.size();
@@ -304,10 +304,9 @@ int MoreThanHalfNum_Solution(vector<int> numbers){
 	return 0;
 }
 /**
- * 37. Çó1+2+3+...+n£¬ÒªÇó²»ÄÜÊ¹ÓÃ³Ë³ı·¨¡¢for¡¢while¡¢if¡¢else¡¢switch¡¢caseµÈ¹Ø¼ü×Ö¼°Ìõ¼şÅĞ¶ÏÓï¾ä£¨A?B:C£©
+ * 37. æ±‚1+2+3+...+nï¼Œè¦æ±‚ä¸èƒ½ä½¿ç”¨ä¹˜é™¤æ³•ã€forã€whileã€ifã€elseã€switchã€caseç­‰å…³é”®å­—åŠæ¡ä»¶åˆ¤æ–­è¯­å¥ï¼ˆA?B:Cï¼‰
  */
 int Sum_Solution(int n) {
-	bool a[n][n+1];	// ÉùÃ÷Ò»¸ö n*n-1  µÄ  bool ÀàĞÍµÄÊı×é
+	bool a[n][n+1];	// å£°æ˜ä¸€ä¸ª n*n-1  çš„  bool ç±»å‹çš„æ•°ç»„
 	return sizeof(a)>>1;
 }
-
