@@ -10,7 +10,7 @@
 /**
  * print the value of array with vector<vector<int >>
  */
-void printArray(vector<vector<int>> arr) {
+void printArray(vector<vector<int> > arr) {
 	if (arr.empty()) {
 		cout << "the array is empty" << endl;
 		return;

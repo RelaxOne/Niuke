@@ -8,7 +8,7 @@
 #include "test.h"
 
 void testFind() {
-	vector<vector<int>> array = initArray();
+	vector<vector<int> > array = initArray();
 	cout << Find(7, array) << endl;
 }
 

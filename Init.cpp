@@ -33,9 +33,9 @@ ListNode * InitList() {
 	return node1;
 }
 
-vector<vector<int>> initArray() {
+vector<vector<int> > initArray() {
 
-	vector<vector<int>> array;
+	vector<vector<int> > array;
 
 	vector<int> temp1;
 	temp1.push_back(2);

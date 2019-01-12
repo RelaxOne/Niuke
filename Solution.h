@@ -13,6 +13,7 @@
 #include <stack>
 #include <string.h>
 #include <math.h>
+#include <stdlib.h>
 
 using namespace std;
 

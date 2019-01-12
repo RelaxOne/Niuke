@@ -11,7 +11,7 @@
 #include "Solution.h"
 
 ListNode * InitList();
-vector<vector<int>> initArray();
+vector<vector<int> > initArray();
 
 vector<int> InitVectorArray();
 TreeNode* InitTreeNode();
