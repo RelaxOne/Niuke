@@ -1,7 +1,7 @@
 /*
  * Solution.h
  *
- *  Created on: 2019Äê1ÔÂ3ÈÕ
+ *  Created on: 2019å¹´1æœˆ3æ—¥
  *      Author: zhoucw
  */
 
@@ -28,47 +28,47 @@ struct TreeNode{
 	TreeNode(int x):val(x), left(NULL),right(NULL){}
 };
 
-// 1. ÔÚÒ»¸ö¶þÎ¬Êý×éÖÐ(Ã¿¸öÒ»Î¬Êý×éµÄ³¤¶ÈÏàÍ¬),Ã¿Ò»ÐÐ¶¼°´ÕÕ´Ó×óµ½ÓÒµÝÔöµÄË³ÐòÅÅÐò, Ã¿Ò»ÁÐ¶¼°´ÕÕ´ÓÉÏµ½ÏÂµÝÔöµÄË³ÐòÅÅÐò¡£
-// ÇëÍê³ÉÒ»¸öº¯Êý, ÊäÈëÕâÑùµÄÒ»¸ö¶þÎ¬Êý×éºÍÒ»¸öÕûÊý, ÅÐ¶ÏÊý×éÖÐÊÇ·ñº¬ÓÐ¸ÃÕûÊý
+// 1. åœ¨ä¸€ä¸ªäºŒç»´æ•°ç»„ä¸­(æ¯ä¸ªä¸€ç»´æ•°ç»„çš„é•¿åº¦ç›¸åŒ),æ¯ä¸€è¡Œéƒ½æŒ‰ç…§ä»Žå·¦åˆ°å³é€’å¢žçš„é¡ºåºæŽ’åº, æ¯ä¸€åˆ—éƒ½æŒ‰ç…§ä»Žä¸Šåˆ°ä¸‹é€’å¢žçš„é¡ºåºæŽ’åºã€‚
+// è¯·å®Œæˆä¸€ä¸ªå‡½æ•°, è¾“å…¥è¿™æ ·çš„ä¸€ä¸ªäºŒç»´æ•°ç»„å’Œä¸€ä¸ªæ•´æ•°, åˆ¤æ–­æ•°ç»„ä¸­æ˜¯å¦å«æœ‰è¯¥æ•´æ•°
 bool Find(int target, vector<vector<int> > array);
 
-// 2. ÊµÏÖÒ»¸öº¯Êý, ½«Ò»¸ö×Ö·û´®ÖÐµÄÃ¿¸ö¿Õ¸ñÌæ»»³É¡°%20¡±
+// 2. å®žçŽ°ä¸€ä¸ªå‡½æ•°, å°†ä¸€ä¸ªå­—ç¬¦ä¸²ä¸­çš„æ¯ä¸ªç©ºæ ¼æ›¿æ¢æˆâ€œ%20â€
 void replaceSpace(char *str, int length);
 
-// 3. ÊäÈëÒ»¸öÁ´±í,°´Á´±íÖµ´ÓÎ²µ½Í·µÄË³Ðò·µ»ØÒ»¸öArrayList
+// 3. è¾“å…¥ä¸€ä¸ªé“¾è¡¨,æŒ‰é“¾è¡¨å€¼ä»Žå°¾åˆ°å¤´çš„é¡ºåºè¿”å›žä¸€ä¸ªArrayList
 vector<int> printListFromTailToHead(ListNode *head);
 
-// 4. ¸ù¾Ý¶þ²æÊ÷µÄÇ°Ðò±éÀúºÍÖÐÐò±éÀúÖØ½¨³ö¸Ã¶þ²æÊ÷
+// 4. æ ¹æ®äºŒå‰æ ‘çš„å‰åºéåŽ†å’Œä¸­åºéåŽ†é‡å»ºå‡ºè¯¥äºŒå‰æ ‘
 TreeNode* reConstructBinaryTree(vector<int> pre, vector<int> vin);
 
-// 6. Êä³öÐý×ªÊý×éÖÐ×îÐ¡µÄÔªËØ
+// 6. è¾“å‡ºæ—‹è½¬æ•°ç»„ä¸­æœ€å°çš„å…ƒç´ 
 int minNumberInRotateArray(vector<int> rotateArray) ;
 
-// 7. ÊäÈëÒ»¸öÕûÊý n, ÇëÄãÊä³öì³²¨ÄÇÆõÊýÁÐµÄµÚ n Ïî
+// 7. è¾“å…¥ä¸€ä¸ªæ•´æ•° n, è¯·ä½ è¾“å‡ºæ–æ³¢é‚£å¥‘æ•°åˆ—çš„ç¬¬ n é¡¹
 int Fibonacci(int n);
 
-// 11. ÊäÈëÒ»¸öÕûÊý,Êä³ö¸ÃÊý¶þ½øÖÆ±íÊ¾ÖÐ1µÄ¸öÊý, ÆäÖÐ¸ºÊýÓÃ²¹Âë±íÊ¾¡£
+// 11. è¾“å…¥ä¸€ä¸ªæ•´æ•°,è¾“å‡ºè¯¥æ•°äºŒè¿›åˆ¶è¡¨ç¤ºä¸­1çš„ä¸ªæ•°, å…¶ä¸­è´Ÿæ•°ç”¨è¡¥ç è¡¨ç¤ºã€‚
 int NumberOf1(int n);
 
-// 12. Çó base µÄ exponent ´Î·½
+// 12. æ±‚ base çš„ exponent æ¬¡æ–¹
 double Power(double base, int exponent);
 
-// 13. Ê¹µÃËùÓÐµÄÆæÊýÎ»ÓÚÊý×éµÄÇ°°ë²¿·Ö,ËùÓÐµÄÅ¼ÊýÎ»ÓÚÊý×éµÄºó°ë²¿·Ö,²¢±£Ö¤ÆäÏà¶ÔÎ»ÖÃ²»·¢Éú¸Ä±ä
+// 13. ä½¿å¾—æ‰€æœ‰çš„å¥‡æ•°ä½äºŽæ•°ç»„çš„å‰åŠéƒ¨åˆ†,æ‰€æœ‰çš„å¶æ•°ä½äºŽæ•°ç»„çš„åŽåŠéƒ¨åˆ†,å¹¶ä¿è¯å…¶ç›¸å¯¹ä½ç½®ä¸å‘ç”Ÿæ”¹å˜
 void reOrderArray(vector<int> &array);
 
-// 14. Á´±íÖÐµ¹ÊýµÚk¸ö½áµã¡£
+// 14. é“¾è¡¨ä¸­å€’æ•°ç¬¬kä¸ªç»“ç‚¹ã€‚
 ListNode* FindKthToTail(ListNode* pListHead, int k);
 
-// 15. ·´×ªÁ´±íºó, Êä³öÐÂÁ´±íµÄ±íÍ·¡£
+// 15. åè½¬é“¾è¡¨åŽ, è¾“å‡ºæ–°é“¾è¡¨çš„è¡¨å¤´ã€‚
 ListNode* ReverseList(ListNode* pHead);
 
-// 16. ºÏ²¢Á½¸öµ¥µ÷µÝÔöµÄÁ´±í,²¢±£³ÖÆäµÝÔöÐÔ
+// 16. åˆå¹¶ä¸¤ä¸ªå•è°ƒé€’å¢žçš„é“¾è¡¨,å¹¶ä¿æŒå…¶é€’å¢žæ€§
 ListNode* Merge(ListNode* pHead1, ListNode* pHead2);
 
-// 18. ½«¸ø¶¨µÄ¶þ²æÊ÷±ä»»ÎªÔ´¶þ²æÊ÷µÄ¾µÏñ
+// 18. å°†ç»™å®šçš„äºŒå‰æ ‘å˜æ¢ä¸ºæºäºŒå‰æ ‘çš„é•œåƒ
 void Mirror(TreeNode *pRoot);
 
-// 37. Çó1+2+3+...+n£¬ÒªÇó²»ÄÜÊ¹ÓÃ³Ë³ý·¨¡¢for¡¢while¡¢if¡¢else¡¢switch¡¢caseµÈ¹Ø¼ü×Ö¼°Ìõ¼þÅÐ¶ÏÓï¾ä£¨A?B:C£©
+// 37. æ±‚1+2+3+...+n
 int Sum_Solution(int n);
 
 #endif /* SOLUTION_H_ */
