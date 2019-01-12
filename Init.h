@@ -1,7 +1,7 @@
 /*
  * Init.h
  *
- *  Created on: 2019Äê1ÔÂ3ÈÕ
+ *  Created on: 2019å¹´1æœˆ3æ—¥
  *      Author: zhoucw
  */
 
@@ -11,7 +11,7 @@
 #include "Solution.h"
 
 ListNode * InitList();
-vector<vector<int>> initArray();
+vector<vector<int> > initArray();
 
 vector<int> InitVectorArray();
 TreeNode* InitTreeNode();

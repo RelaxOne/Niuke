@@ -1,7 +1,7 @@
 /*
  * print.cpp
  *
- *  Created on: 2019Äê1ÔÂ3ÈÕ
+ *  Created on: 2019å¹´1æœˆ3æ—¥
  *      Author: zhoucw
  */
 
@@ -10,7 +10,7 @@
 /**
  * print the value of array with vector<vector<int >>
  */
-void printArray(vector<vector<int>> arr) {
+void printArray(vector<vector<int> > arr) {
 	if (arr.empty()) {
 		cout << "the array is empty" << endl;
 		return;

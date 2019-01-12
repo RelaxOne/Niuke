@@ -1,7 +1,7 @@
 /*
  * mian.cpp
  *
- *  Created on: 2019Äê1ÔÂ3ÈÕ
+ *  Created on: 2019å¹´1æœˆ3æ—¥
  *      Author: zhoucw
  */
 
@@ -9,5 +9,5 @@
 
 
 int main() {
-	testSum_Solution();
+	testMoreThanHalfNum_Solution();
 }

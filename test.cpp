@@ -1,14 +1,14 @@
 /*
  * test.cpp
  *
- *  Created on: 2019Äê1ÔÂ3ÈÕ
+ *  Created on: 2019å¹´1æœˆ3æ—¥
  *      Author: zhoucw
  */
 
 #include "test.h"
 
 void testFind() {
-	vector<vector<int>> array = initArray();
+	vector<vector<int> > array = initArray();
 	cout << Find(7, array) << endl;
 }
 
@@ -102,4 +102,18 @@ void testMirror(){
 
 void testSum_Solution(){
 	cout<< Sum_Solution(5)<<endl;
+}
+
+void testMoreThanHalfNum_Solution(){
+	vector<int> numbers;
+	numbers.push_back(1);
+	numbers.push_back(2);
+	numbers.push_back(3);
+	numbers.push_back(2);
+	numbers.push_back(2);
+	numbers.push_back(2);
+	numbers.push_back(5);
+	numbers.push_back(4);
+	numbers.push_back(2);
+	cout<<MoreThanHalfNum_Solution(numbers)<<endl;
 }

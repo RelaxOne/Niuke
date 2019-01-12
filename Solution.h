@@ -13,6 +13,7 @@
 #include <stack>
 #include <string.h>
 #include <math.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -68,7 +69,10 @@ ListNode* Merge(ListNode* pHead1, ListNode* pHead2);
 // 18. 将给定的二叉树变换为源二叉树的镜像
 void Mirror(TreeNode *pRoot);
 
-// 37. 求1+2+3+...+n
+// 28. 数组中出现次数超过一半的数字
+int MoreThanHalfNum_Solution(vector<int> numbers);
+
+// 37. 求1+2+3+...+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）
 int Sum_Solution(int n);
 
 #endif /* SOLUTION_H_ */
