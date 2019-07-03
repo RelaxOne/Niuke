@@ -8,6 +8,7 @@
 #ifndef TEST_H_
 #define TEST_H_
 
+#include <algorithm>
 #include "Init.h"
 #include "print.h"
 
@@ -26,5 +27,9 @@ void testreConstructBinaryTree();
 void testMirror();
 void testSum_Solution();
 void testMoreThanHalfNum_Solution();
+void testJumpFloor();
+void testJumpFloorII();
+void testprintMatrix();
+void testIsPopOrder();
 
 #endif /* TEST_H_ */

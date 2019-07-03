@@ -70,31 +70,31 @@ vector<int> printListFromTailToHead(ListNode *head) {
  */
 TreeNode* reConstructBinaryTree(vector<int> pre, vector<int> vin) {
 	vector<int> left_pre, right_pre, left_vin, right_vin;
-	if(pre.empty())
+	if (pre.empty())
 		return NULL;
 	int root_val = pre[0];
 	int len = vin.size();
 	int index = 0;
-	for(int i = 0; i < len; i++){
-		if(vin[i] == root_val){
+	for (int i = 0; i < len; i++) {
+		if (vin[i] == root_val) {
 			index = i;
 			break;
 		}
 		left_vin.push_back(vin[i]);
 	}
-	for(int i = 1; i < index + 1; i++){
+	for (int i = 1; i < index + 1; i++) {
 		left_pre.push_back(pre[i]);
 	}
 
-	for(int i = index + 1; i < len; i++){
+	for (int i = index + 1; i < len; i++) {
 		right_vin.push_back(vin[i]);
 		right_pre.push_back(pre[i]);
 	}
 	TreeNode *root = new TreeNode(root_val);
 	root->val = root_val;
 
-	root->left = reConstructBinaryTree(left_pre,left_vin);
-	root->right = reConstructBinaryTree(right_pre,right_vin);
+	root->left = reConstructBinaryTree(left_pre, left_vin);
+	root->right = reConstructBinaryTree(right_pre, right_vin);
 
 	return root;
 }
@@ -129,6 +129,45 @@ int Fibonacci(int n) {
 		b = c;
 	}
 	return c;
+}
+
+/*
+ * 8. 跳台阶
+ */
+int JumpFloor(int number) {
+	int *temp = new int[number + 1];
+	temp[0] = 0;
+	temp[1] = 1;
+	temp[2] = 2;
+	for (int i = 3; i <= number; i++) {
+		temp[i] = temp[i - 1] + temp[i - 2];
+	}
+	return temp[number];
+}
+
+/**
+ * 9. 变态跳台阶
+ */
+int JumpFloorII(int target) {
+	if (target == 0)
+		return 1;
+	int count = 0;
+	for (int i = 1; i < target; i++) {
+		count += JumpFloor(target - i);
+	}
+	return count;
+}
+
+/**
+ * 10. 矩形覆盖
+ */
+int RectCover(int target) {
+	if (target <= 0)
+		return 0;
+	else if (target < 3)
+		return target;
+	else
+		return RectCover(target - 1) + RectCover(target - 2);
 }
 
 /**
@@ -258,11 +297,39 @@ ListNode* Merge(ListNode* pHead1, ListNode* pHead2) {
 		p->next = p2;
 	return result->next;
 }
+
+bool isSubtree(TreeNode* pRoot1, TreeNode * pRoot2) {
+	if (!pRoot2)
+		return true;
+	if (!pRoot1)
+		return false;
+	if (pRoot1->val != pRoot2->val)
+		return false;
+	return isSubtree(pRoot1->left, pRoot2->left)
+			&& isSubtree(pRoot1->right, pRoot2->right);
+}
+
+/**
+ * 17. 树的子结构
+ */
+bool HasSubtree(TreeNode* pRoot1, TreeNode* pRoot2) {
+	if (!pRoot1 || !pRoot2)
+		return false;
+	bool result = false;
+	if (pRoot1->val == pRoot2->val)
+		result = isSubtree(pRoot1, pRoot2);
+	if (!result)
+		result = HasSubtree(pRoot1->left, pRoot2);
+	if (!result)
+		result = HasSubtree(pRoot1->right, pRoot2);
+	return result;
+}
+
 /**
  * 18. 将给定的二叉树变换为源二叉树的镜像
  */
-void Mirror(TreeNode *pRoot){
-	if(pRoot == NULL)
+void Mirror(TreeNode *pRoot) {
+	if (pRoot == NULL)
 		return;
 	TreeNode *temp = pRoot->left;
 	pRoot->left = pRoot->right;
@@ -272,33 +339,84 @@ void Mirror(TreeNode *pRoot){
 }
 
 /**
+ * 19. 顺时针打印矩阵
+ */
+vector<int> printMatrix(vector<vector<int> > matrix) {
+	vector<int> result;
+	int row = matrix.size();
+	if (row == 0)
+		return result;
+	int col = matrix[0].size();
+	int left = 0, top = 0, bottom = row - 1, right = col - 1;
+	while (left <= right && top <= bottom) {
+		for (int i = left; i <= right; ++i)
+			result.push_back(matrix[top][i]);
+		for (int i = top + 1; i <= bottom; ++i)
+			result.push_back(matrix[i][right]);
+		if (top != bottom)
+			for (int i = right - 1; i >= left; --i)
+				result.push_back(matrix[bottom][i]);
+		if (left != right)
+			for (int i = bottom - 1; i > top; --i)
+				result.push_back(matrix[i][left]);
+		left++;
+		right--;
+		top++;
+		bottom--;
+	}
+	return result;
+}
+
+/**
+ * 21. 栈的压入、弹出序列
+ */
+bool IsPopOrder(vector<int> pushV, vector<int> popV) {
+	stack<int> stav;
+	for (int i = popV.size() - 1; i >= 0; i--)
+		stav.push(popV[i]);
+
+	stack<int> sta;
+	int index = 0;
+	for (int i = 0; i < pushV.size(); i++) {
+		sta.push(pushV[i]);
+		if (!sta.empty()) {
+			while (!sta.empty() && sta.top() == stav.top()) {
+				stav.pop();
+				sta.pop();
+			}
+		}
+	}
+	return sta.empty();
+}
+
+/**
  * 28. 数组中出现次数超过一半的数字
  */
-int MoreThanHalfNum_Solution(vector<int> numbers){
+int MoreThanHalfNum_Solution(vector<int> numbers) {
 	int len = numbers.size();
-	vector<int> arr,arr_index;
-	for(int i = 0; i < len; i++){
+	vector<int> arr, arr_index;
+	for (int i = 0; i < len; i++) {
 		int number = numbers[i];
 		bool flag = false;
 		int index = -1;
 		int l = arr.size();
-		for(int j = 0; j < l;j++){
-			if(arr[j] == number){
+		for (int j = 0; j < l; j++) {
+			if (arr[j] == number) {
 				flag = true;
 				index = j;
 				break;
 			}
 		}
-		if(!flag){
+		if (!flag) {
 			arr.push_back(number);
 			arr_index.push_back(1);
-		}else{
+		} else {
 			arr_index[index] += 1;
 		}
 	}
 	int arr_size = arr_index.size();
-	for(int i = 0; i < arr_size; i++){
-		if(arr_index[i] > len / 2)
+	for (int i = 0; i < arr_size; i++) {
+		if (arr_index[i] > len / 2)
 			return arr[i];
 	}
 	return 0;
@@ -307,6 +425,6 @@ int MoreThanHalfNum_Solution(vector<int> numbers){
  * 37. 求1+2+3+...+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）
  */
 int Sum_Solution(int n) {
-	bool a[n][n+1];	// 声明一个 n*n-1  的  bool 类型的数组
-	return sizeof(a)>>1;
+	bool a[n][n + 1];	// 声明一个 n*n-1  的  bool 类型的数组
+	return sizeof(a) >> 1;
 }

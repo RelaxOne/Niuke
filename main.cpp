@@ -9,5 +9,5 @@
 
 
 int main() {
-	testMoreThanHalfNum_Solution();
+	testIsPopOrder();
 }

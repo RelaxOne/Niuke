@@ -42,11 +42,13 @@ vector<vector<int> > initArray() {
 	temp1.push_back(7);
 	temp1.push_back(9);
 	temp1.push_back(11);
+	temp1.push_back(11);
 
 	vector<int> temp2;
 	temp2.push_back(3);
 	temp2.push_back(8);
 	temp2.push_back(10);
+	temp2.push_back(13);
 	temp2.push_back(13);
 
 	vector<int> temp3;
@@ -54,17 +56,27 @@ vector<vector<int> > initArray() {
 	temp3.push_back(11);
 	temp3.push_back(15);
 	temp3.push_back(17);
+	temp3.push_back(17);
 
 	vector<int> temp4;
 	temp4.push_back(7);
 	temp4.push_back(12);
 	temp4.push_back(17);
 	temp4.push_back(19);
+	temp4.push_back(19);
+
+	vector<int> temp5;
+	temp5.push_back(-1);
+	temp5.push_back(-2);
+	temp5.push_back(-3);
+	temp5.push_back(-4);
+	temp5.push_back(-4);
 
 	array.push_back(temp1);
 	array.push_back(temp2);
 	array.push_back(temp3);
 	array.push_back(temp4);
+	array.push_back(temp5);
 	return array;
 }
 

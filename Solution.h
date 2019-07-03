@@ -48,6 +48,15 @@ int minNumberInRotateArray(vector<int> rotateArray) ;
 // 7. 输入一个整数 n, 请你输出斐波那契数列的第 n 项
 int Fibonacci(int n);
 
+// 8. 跳台阶
+int JumpFloor(int number);
+
+// 9. 变态跳台阶
+int JumpFloorII(int number);
+
+// 10. 矩形覆盖
+int RectCover(int number);
+
 // 11. 输入一个整数,输出该数二进制表示中1的个数, 其中负数用补码表示。
 int NumberOf1(int n);
 
@@ -66,8 +75,17 @@ ListNode* ReverseList(ListNode* pHead);
 // 16. 合并两个单调递增的链表,并保持其递增性
 ListNode* Merge(ListNode* pHead1, ListNode* pHead2);
 
+// 17. 判断一棵树是否是另一棵树的子树
+bool HasSubtree(TreeNode* pRoot1, TreeNode* pRoot2);
+
 // 18. 将给定的二叉树变换为源二叉树的镜像
 void Mirror(TreeNode *pRoot);
+
+// 19. 顺时针打印矩阵
+vector<int> printMatrix(vector<vector<int> > matrix);
+
+// 21. 栈的压入、弹出序列
+bool IsPopOrder(vector<int> pushV,vector<int> popV);
 
 // 28. 数组中出现次数超过一半的数字
 int MoreThanHalfNum_Solution(vector<int> numbers);
