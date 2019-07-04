@@ -140,3 +140,49 @@ void testIsPopOrder() {
 	vector<int> popV(pB, pB + 5);
 	cout << IsPopOrder(pushV, popV) << endl;
 }
+
+void testPrintFromTopToBottom() {
+	TreeNode *root = InitTreeNode();
+	vector<int> result = PrintFromTopToBottom(root);
+	printVector(result);
+}
+
+void testFindPath() {
+	TreeNode* root = InitTreeNode();
+	auto result = FindPath(root, 10);
+	printVector(result);
+}
+
+void testClone() {
+	RandomListNode *root = InitRandomListNode();
+	printRandomListNode(root);
+	RandomListNode *result = Clone(root);
+	printRandomListNode(result);
+}
+
+void testPermutation() {
+	string str = "";
+	vector<string> result = Permutation(str);
+	printVector(result);
+}
+
+void testNumberOf1Between1AndN_Solution() {
+	cout << NumberOf1Between1AndN_Solution(13) << endl;
+}
+
+void testPrintMinNumber() {
+	int arr[] = { 3, 32, 321 };
+	vector<int> numbers(arr, arr + 3);
+	cout << PrintMinNumber(numbers) << endl;
+}
+
+void testFirstNotRepeatingChar() {
+	string str = "thisisateststring";
+	cout << FirstNotRepeatingChar(str) << endl;
+}
+
+void testGetNumberOfK() {
+	int arr[] = { 2, 2, 2, 2, 2, 2 };
+	vector<int> data(arr, arr + 6);
+	cout << GetNumberOfK(data, 2) << endl;
+}

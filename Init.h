@@ -15,5 +15,6 @@ vector<vector<int> > initArray();
 
 vector<int> InitVectorArray();
 TreeNode* InitTreeNode();
+RandomListNode* InitRandomListNode();
 
 #endif /* INIT_H_ */

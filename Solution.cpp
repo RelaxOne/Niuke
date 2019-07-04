@@ -390,37 +390,315 @@ bool IsPopOrder(vector<int> pushV, vector<int> popV) {
 }
 
 /**
+ * 22. 从上至下打印二叉树
+ */
+vector<int> PrintFromTopToBottom(TreeNode *root) {
+	queue<TreeNode *> queue;
+	vector<int> result;
+	if (root == nullptr)
+		return result;
+	queue.push(root);
+	while (!queue.empty()) {
+		TreeNode* temp = queue.front();
+		if (temp->left != nullptr)
+			queue.push(temp->left);
+		if (temp->right != nullptr)
+			queue.push(temp->right);
+		result.push_back(temp->val);
+		queue.pop();
+	}
+	return result;
+}
+
+/**
+ * 23. 判断一个序列是否是某二叉树的后序遍历序列
+ */
+bool VerifySquenceOfBST(vector<int> sequence) {
+
+}
+
+void iteator(vector<vector<int>> &result, vector<int> &temp, int target,
+		TreeNode* node) {
+	if (node == nullptr || target < 0)
+		return;
+	temp.push_back(node->val);
+	if (target - node->val == 0 && node->left == nullptr
+			&& node->right == nullptr)
+		result.push_back(temp);
+	iteator(result, temp, target - node->val, node->left);
+	iteator(result, temp, target - node->val, node->right);
+	if (!temp.empty())
+		temp.pop_back();
+}
+
+/**
+ * 24. 二叉树和为某一值的路径
+ */
+vector<vector<int> > FindPath(TreeNode* root, int expectNumber) {
+	vector<vector<int> > result;
+	vector<int> temp;
+	iteator(result, temp, expectNumber, root);
+	return result;
+}
+
+/**
+ * 25. 复制链表的复制
+ */
+RandomListNode* Clone(RandomListNode* pHead) {
+	if (pHead == nullptr)
+		return nullptr;
+	RandomListNode *p = pHead;
+	while (p != nullptr) {
+		RandomListNode *cloneNode = new RandomListNode(p->label);
+		cloneNode->next = p->next;
+		p->next = cloneNode;
+		p = cloneNode->next;
+	}
+	p = pHead;
+	while (p != nullptr) {
+		p->next->random = p->random == nullptr ? nullptr : p->random->next;
+		p = p->next->next;
+	}
+	p = pHead;
+	RandomListNode* result = pHead->next;
+	while (p != nullptr) {
+		RandomListNode *pClone = p->next;
+		p->next = pClone->next;
+		pClone->next = pClone->next == nullptr ? nullptr : pClone->next->next;
+		p = p->next;
+	}
+	return result;
+}
+
+/**
+ * 27. 字符串的全排列
+ */
+vector<string> Permutation(string str) {
+	vector<string> result;
+	if (str == "")
+		return result;
+	sort(str.begin(), str.end());
+	result.push_back(str);
+	while (next_permutation(str.begin(), str.end())) {
+		result.push_back(str);
+	}
+	return result;
+}
+
+/**
  * 28. 数组中出现次数超过一半的数字
  */
 int MoreThanHalfNum_Solution(vector<int> numbers) {
 	int len = numbers.size();
-	vector<int> arr, arr_index;
+	if (len == 0)
+		return 0;
+	int num = numbers[0], count = 1;
 	for (int i = 0; i < len; i++) {
-		int number = numbers[i];
-		bool flag = false;
-		int index = -1;
-		int l = arr.size();
-		for (int j = 0; j < l; j++) {
-			if (arr[j] == number) {
-				flag = true;
-				index = j;
-				break;
-			}
-		}
-		if (!flag) {
-			arr.push_back(number);
-			arr_index.push_back(1);
-		} else {
-			arr_index[index] += 1;
+		if (num == numbers[i])
+			count++;
+		else
+			count--;
+		if (count == 0) {
+			num = numbers[i];
+			count = 1;
 		}
 	}
-	int arr_size = arr_index.size();
-	for (int i = 0; i < arr_size; i++) {
-		if (arr_index[i] > len / 2)
-			return arr[i];
+	count = 0;
+	for (int i = 0; i < len; i++) {
+		if (num == numbers[i])
+			count++;
 	}
+	if (count > len >> 1)
+		return num;
 	return 0;
 }
+
+/**
+ * 29. 求最小的 K 个数
+ */
+vector<int> GetLeastNumbers_Solution(vector<int> input, int k) {
+	vector<int> result;
+	if (input.size() < k)
+		return result;
+	sort(input.begin(), input.end());
+	for (int i = 0; i < k; i++)
+		result.push_back(input[i]);
+	return result;
+
+}
+
+/**
+ * 30. 连续子数组的最大和
+ */
+int FindGreatestSumOfSubArray(vector<int> array) {
+	if (array.size() == 0)
+		return 0;
+	int sum = array[0], tempsum = array[0];
+	for (int i = 1; i < array.size(); i++) {
+		tempsum = tempsum < 0 ? array[i] : tempsum + array[i];
+		sum = tempsum > sum ? tempsum : sum;
+	}
+	return sum;
+}
+
+int getnum1ofN(int n) {
+	int count = 0;
+	while (n) {
+		if (n % 10 == 1)
+			count++;
+		n /= 10;
+	}
+	return count;
+}
+
+/**
+ * 31. 整数中 1 出现的次数
+ */
+int NumberOf1Between1AndN_Solution(int n) {
+	int result = 0;
+	for (int i = 1; i <= n; i++) {
+		result += getnum1ofN(i);
+	}
+	return result;
+}
+
+static bool compareNum(int num1, int num2) {
+	string str1 = to_string(num1);
+	string str2 = to_string(num2);
+	if (str1 + str2 < str2 + str1)
+		return true;
+	else
+		return false;
+}
+
+/**
+ * 32. 把数组排成最小的数
+ */
+string PrintMinNumber(vector<int> numbers) {
+	sort(numbers.begin(), numbers.end(), compareNum);
+	string result = "";
+	for (int i = 0; i < numbers.size(); i++) {
+		result += to_string(numbers[i]);
+	}
+	return result;
+}
+
+/**
+ * 33. 丑数
+ */
+int GetUglyNumber_Solution(int index) {
+	if (index < 1)
+		return 0;
+	int *result = new int[index];
+	result[0] = 1;
+	int i = 1;
+	int i2 = 0, i3 = 0, i5 = 0;
+	while (i < index) {
+		int temp = min(result[i2] * 2, min(result[i3] * 3, result[i5] * 5));
+		if (temp == result[i2] * 2)
+			i2++;
+		if (temp == result[i3] * 3)
+			i3++;
+		if (temp == result[i5] * 5)
+			i5++;
+		result[i++] = temp;
+	}
+	return result[index - 1];
+}
+
+/**
+ * 34. 第一个只出现一次的字符
+ */
+int FirstNotRepeatingChar(string str) {
+	map<char, int> strmap;
+	for (auto i = 0; i < str.size(); i++) {
+		if (strmap.find(str[i]) == strmap.end()) {
+			strmap.insert(pair<char, int>(str[i], i));
+		} else if (strmap[str[i]] == -1) {
+			continue;
+		} else {
+			strmap[str[i]] = -1;
+		}
+	}
+	auto result = str.size() + 1;
+	for (auto k : strmap) {
+		if (k.second == -1)
+			continue;
+		result = (k.second < result) ? k.second : result;
+	}
+	return result == str.size() + 1 ? -1 : result;
+}
+
+/**
+ * 36. 两个链表的第一个公共节点
+ */
+ListNode* FindFirsCommonNode(ListNode* pHead1, ListNode* pHead2) {
+	ListNode* p1 = pHead1, *p2 = pHead2;
+	int len1 = 0, len2 = 0;
+	while (p1 != nullptr) {
+		p1 = p1->next;
+		len1++;
+	}
+	while (p2 != nullptr) {
+		p2 = p2->next;
+		len2++;
+	}
+	if (p1 != p2)
+		return nullptr;
+	p1 = pHead1;
+	p2 = pHead2;
+	if (len1 > len2) {
+		for (int i = 0; i < len1 - len2; i++) {
+			p1 = p1->next;
+		}
+	} else {
+		for (int i = 0; i < len2 - len1; i++) {
+			p2 = p2->next;
+		}
+	}
+	while (p1 != nullptr && p2 != nullptr) {
+		if (p1 == p2)
+			return p1;
+		p1 = p1->next;
+		p2 = p2->next;
+	}
+	return nullptr;
+}
+
+/**
+ * 37. 数字在排序数组中出现的次数
+ */
+int GetNumberOfK(vector<int> data, int k) {
+	auto result = equal_range(data.begin(), data.end(), k);
+	return result.second - result.first;
+}
+
+/**
+ * 38. 二叉树的深度
+ */
+int TreeDepth(TreeNode *pRoot) {
+	int depth = 0;
+	if (pRoot == nullptr)
+		return depth;
+	queue<TreeNode*> que;
+	que.push(pRoot);
+	while (!que.empty()) {
+		depth++;
+		int size = que.size();
+		int index = 0;
+		while (index < size) {
+			index++;
+			TreeNode* temp = que.front();
+			if (temp->left)
+				que.push(temp->left);
+			if (temp->right)
+				que.push(temp->right);
+			que.pop();
+		}
+	}
+	return depth;
+}
+
 /**
  * 37. 求1+2+3+...+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）
  */

@@ -31,5 +31,13 @@ void testJumpFloor();
 void testJumpFloorII();
 void testprintMatrix();
 void testIsPopOrder();
+void testPrintFromTopToBottom();
+void testFindPath();
+void testClone();
+void testPermutation();
+void testNumberOf1Between1AndN_Solution();
+void testPrintMinNumber();
+void testFirstNotRepeatingChar();
+void testGetNumberOfK();
 
 #endif /* TEST_H_ */
