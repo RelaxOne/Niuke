@@ -186,3 +186,49 @@ void testGetNumberOfK() {
 	vector<int> data(arr, arr + 6);
 	cout << GetNumberOfK(data, 2) << endl;
 }
+
+void testFindContinousSequence() {
+	auto result = FindContinousSequence(9);
+	printVector(result);
+}
+
+void testReverseSentence() {
+	string str = "student. a am I";
+	cout << ReverseSentence(str) << endl;
+}
+
+void testIsContinuous() {
+	int arr[5] = { 0, 1, 3, 5, 7 };
+	vector<int> numbers(arr, arr + 5);
+	cout << IsContinuous(numbers);
+}
+
+void testLastRemaining_Solution() {
+	cout << LastRemaining_Solution(4, 2) << endl;
+}
+
+void testStrToInt() {
+	string str = "-123";
+	cout << StrToInt(str) << endl;
+}
+
+void testduplicate() {
+	int numbers[5] = { 2, 1, 3, 1, 4 };
+	int length = 5;
+	int duplication;
+	cout << duplicate(numbers, length, &duplication) << endl;
+	cout << duplication << endl;
+}
+
+void testmultiply(){
+	int numbers[] = {1,2,3,4,5};
+	vector<int> A(numbers, numbers + 5);
+	auto result = multiply(A);
+	printVector(result);
+}
+
+void testdeleteDuplication(){
+	ListNode* pHead = InitList();
+	ListNode* result = deleteDuplication(pHead);
+	printListNode(result);
+}

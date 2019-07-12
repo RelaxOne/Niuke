@@ -700,9 +700,280 @@ int TreeDepth(TreeNode *pRoot) {
 }
 
 /**
- * 37. 求1+2+3+...+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）
+ * 39. 平衡二叉树
+ */
+bool IsBalanced_Solution(TreeNode* pRoot) {
+	if (pRoot == nullptr)
+		return true;
+	bool flag = IsBalanced_Solution(pRoot->left)
+			&& IsBalanced_Solution(pRoot->right);
+	int leftDepth = TreeDepth(pRoot->left);
+	int rightDepth = TreeDepth(pRoot->right);
+	if (abs(leftDepth - rightDepth) <= 1 && flag)
+		return true;
+	return false;
+}
+
+/**
+ * 40. 数组中只出现一次的数字
+ */
+void FindNumsAppearOnce(vector<int> data, int* num1, int* num2) {
+
+}
+
+/**
+ * 41. 和为 S 的连续正数序列
+ */
+vector<vector<int> > FindContinousSequence(int sum) {
+	vector<vector<int>> result;
+	int left = 1, right = 1;
+	int tempsum = 1;
+	while (left <= right) {
+		right++;
+		tempsum += right;
+		while (tempsum > sum) {
+			tempsum -= left;
+			left++;
+		}
+		if (tempsum == sum && left != right) {
+			vector<int> temp;
+			for (int i = left; i <= right; i++)
+				temp.push_back(i);
+			result.push_back(temp);
+		}
+	}
+	return result;
+}
+
+/**
+ * 42. 和为 S 的两个数字
+ */
+vector<int> FindNumberWithSum(vector<int> array, int sum) {
+	int left = 0, right = array.size() - 1;
+	vector<int> result;
+	while (left < right) {
+		int tempsum = array[left] + array[right];
+		if (tempsum > sum) {
+			right--;
+		} else if (tempsum == sum) {
+			result.push_back(array[left]);
+			result.push_back(array[right]);
+			break;
+		} else {
+			left++;
+		}
+	}
+	return result;
+}
+
+/**
+ * 43. 左旋字符串
+ */
+string LeftRotateString(string str, int n) {
+	string result;
+	for (int i = n; i < str.length(); i++) {
+		result += str[i];
+	}
+	for (int i = 0; i < n; i++) {
+		result += str[i];
+	}
+	return result;
+}
+
+vector<string> split(string str, const string pattern) {
+	vector<string> result;
+	string::size_type pos;
+	str += pattern;
+	for (int i = 0; i < str.size(); i++) {
+		pos = str.find(pattern, i);
+		if (pos < str.size()) {
+			string s = str.substr(i, pos - i);
+			result.push_back(s);
+			i = pos + pattern.size() - 1;
+		}
+	}
+	return result;
+}
+
+/**
+ * 44. 翻转单词顺序列
+ */
+string ReverseSentence(string str) {
+	auto strs = split(str, " ");
+	string result = "";
+	for (int i = strs.size() - 1; i > 0; i--) {
+		result += strs[i];
+		result += " ";
+	}
+	result += strs[0];
+	return result;
+}
+
+/**
+ * 45. 扑克牌顺子
+ */
+bool IsContinuous(vector<int> numbers) {
+	if (numbers.size() != 5)
+		return false;
+	sort(numbers.begin(), numbers.end());
+	int num0 = 0;
+	for (int i = 0; i < numbers.size(); i++) {
+		if (numbers[i] == 0) {
+			num0++;
+		} else {
+			if (i == 0 || numbers[i - 1] == 0)
+				continue;
+			if (numbers[i - 1] == numbers[i])
+				return false;
+			else if ((numbers[i] - numbers[i - 1]) > 1) {
+				num0 -= numbers[i] - numbers[i - 1] - 1;
+			}
+		}
+	}
+	if (num0 < 0)
+		return false;
+	return true;
+
+}
+
+/**
+ * 46. 孩子们的游戏(圆圈中最后剩下的数)
+ */
+int LastRemaining_Solution(int n, int m) {
+	if (n == 0)
+		return -1;
+	int s = 0;
+	for (int i = 2; i <= n; i++) {
+		s = (s + m) % i;
+	}
+	return s;
+}
+
+/**
+ * 47. 求1+2+3+...+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）
  */
 int Sum_Solution(int n) {
 	bool a[n][n + 1];	// 声明一个 n*n-1  的  bool 类型的数组
 	return sizeof(a) >> 1;
+}
+
+/**
+ * 48. 不用加减乘除做加法
+ */
+int Add(int num1, int num2) {
+
+}
+
+/**
+ * 49. 字符串转整数
+ */
+int StrToInt(string str) {
+	if (str.size() == 0)
+		return 0;
+	int result = 0;
+	int value = str[0] - '0';
+	if (value >= 0 && value <= 9) {
+		result = result * 10 + value;
+	} else if (str[0] != '+' && str[0] != '-')
+		return 0;
+	for (int i = 1; i < str.size(); i++) {
+		int value = str[i] - '0';
+		if (value >= 0 && value <= 9) {
+			result = result * 10 + value;
+		} else
+			return 0;
+	}
+	return str[0] == '-' ? -result : result;
+}
+
+/**
+ * 50. 数组中重复的数字
+ */
+bool duplicate(int numbers[], int length, int* duplication) {
+	bool *temp = new bool[length];
+	for (int i = 0; i < length; i++)
+		temp[i] = false;
+	for (int i = 0; i < length; i++) {
+		int value = numbers[i];
+		if (temp[value] == true) {
+			duplication[0] = value;
+			return true;
+		}
+		temp[value] = true;
+	}
+	return false;
+}
+
+/**
+ * 51.构建乘积数组
+ */
+vector<int> multiply(const vector<int> & A) {
+	int size = A.size();
+	vector<int> result(size, 1);
+	for (int i = 1; i < size; i++) {
+		result[i] = result[i - 1] * A[i - 1];
+	}
+	vector<int> temp(size, 1);
+	for (int i = size - 2; i >= 0; i--) {
+		temp[i] = temp[i + 1] * A[i + 1];
+	}
+	for (int i = 0; i < size; i++) {
+		result[i] = result[i] * temp[i];
+	}
+	return result;
+}
+
+/**
+ * 52. 正则表达式匹配
+ */
+bool match(char* str, char* pattern) {
+
+}
+
+/**
+ * 53. 表示数值的字符串
+ */
+bool isNumberic(char* string) {
+	int len = strlen(string);
+	bool hasE = false, hasD = false;
+	for (int i = 0; i < len; i++) {
+
+	}
+}
+/**
+ * 55. 链表中环的入口节点
+ */
+ListNode* EntryNodeOfLoop(ListNode *pHead) {
+	if (pHead == nullptr || pHead->next == nullptr
+			|| pHead->next->next == nullptr)
+		return nullptr;
+	ListNode* fast = pHead->next->next, *slow = pHead->next;
+	while (fast != slow) {
+		if (fast->next != nullptr && fast->next->next != nullptr) {
+			slow = slow->next;
+			fast = fast->next->next;
+		} else
+			return nullptr;
+	}
+	fast = pHead;
+	while (fast != slow) {
+		fast = fast->next;
+		slow = slow->next;
+	}
+	return fast;
+}
+
+/**
+ * 56. 删除链表中重复的节点
+ */
+ListNode* deleteDuplication(ListNode* pHead) {
+	if(!pHead->next)
+		return pHead;
+	ListNode* pre = pHead, *p = pHead->next;
+	while (p && p->next) {
+		if(pre->val != p->val && p->val != p->next->val)
+
+		p = p->next;
+	}
+
 }

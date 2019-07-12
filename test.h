@@ -39,5 +39,13 @@ void testNumberOf1Between1AndN_Solution();
 void testPrintMinNumber();
 void testFirstNotRepeatingChar();
 void testGetNumberOfK();
+void testFindContinousSequence();
+void testReverseSentence();
+void testIsContinuous();
+void testLastRemaining_Solution();
+void testStrToInt();
+void testduplicate();
+void testmultiply();
+void testdeleteDuplication();
 
 #endif /* TEST_H_ */

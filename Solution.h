@@ -42,8 +42,7 @@ struct RandomListNode {
 	}
 };
 
-// 1. 在一个二维数组中(每个一维数组的长度相同),每一行都按照从左到右递增的顺序排序, 每一列都按照从上到下递增的顺序排序。
-// 请完成一个函数, 输入这样的一个二维数组和一个整数, 判断数组中是否含有该整数
+// 1. 二维数组中的查找
 bool Find(int target, vector<vector<int> > array);
 
 // 2. 实现一个函数, 将一个字符串中的每个空格替换成“%20”
@@ -145,7 +144,55 @@ int GetNumberOfK(vector<int> data, int k);
 //38. 二叉树的深度
 int TreeDepth(TreeNode *pRoot);
 
-// 37. 求1+2+3+...+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）
+//39. 平衡二叉树
+bool IsBalanced_Solution(TreeNode* pRoot);
+
+//40. 数组中只出现一次的数字
+void FindNumsAppearOnce(vector<int> data, int *num1, int *num2);
+
+//41. 和为 S 的连续正数序列
+vector<vector<int> > FindContinousSequence(int sum);
+
+//42. 和为 S 的两个数字
+vector<int> FindNumberWithSum(vector<int> array, int sum);
+
+//43. 左旋字符串
+string LeftRotateString(string str, int n);
+
+//44. 翻转单词顺序列
+string ReverseSentence(string str);
+
+// 45. 扑克牌顺子
+bool IsContinuous(vector<int> numbers);
+
+//46. 孩子们的游戏(圆圈中最后剩下的数)
+int LastRemaining_Solution(int n, int m);
+
+//47. 求1+2+3+...+n
 int Sum_Solution(int n);
+
+//48. 不用加减乘除做加法
+int Add(int num1, int num2);
+
+//49. 字符串转整数
+int StrToInt(string str);
+
+//50. 数组中重复的数字
+bool duplicate(int numbers[], int length, int* duplication);
+
+//51. 构建乘积数组
+vector<int> multiply(const vector<int> &A);
+
+//52. 正则表达式匹配
+bool match(char* str, char* pattern);
+
+//53. 表示数值的字符串
+bool isNumberic(char* string);
+
+//55. 链表中环的入口节点
+ListNode* EntryNodeOfLoop(ListNode* pHead);
+
+//56. 删除链表中重复的节点
+ListNode* deleteDuplication(ListNode *pHead);
 
 #endif /* SOLUTION_H_ */
